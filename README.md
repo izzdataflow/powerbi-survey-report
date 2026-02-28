@@ -14,7 +14,7 @@ The workflow covers the full pipeline — from raw Excel ingestion and Power Que
 
 Load the raw survey Excel file into Power BI via **Get Data → Excel Workbook**, then open **Power Query Editor** to begin transformation.
 
-![Step 1](images/step_01.png)
+![Step 1](assets/images/1.load_transform_data.png)
 
 ---
 
@@ -22,7 +22,7 @@ Load the raw survey Excel file into Power BI via **Get Data → Excel Workbook**
 
 Identify and remove columns that carry no analytical value (e.g., metadata, timestamps, or empty fields) to keep the data model clean and performant.
 
-![Step 2](images/step_02.png)
+![Step 2](assets/images/2.remove_useless_column.png)
 
 ---
 
@@ -30,7 +30,7 @@ Identify and remove columns that carry no analytical value (e.g., metadata, time
 
 Split the **Q1 – Job Title** column using `(` as the delimiter to isolate the clean job title text, then delete the resulting right-side split column containing trailing parenthetical content.
 
-![Step 3](images/step_03.png)
+![Step 3](assets/images/3.split_q1_column.png)
 
 ---
 
@@ -38,7 +38,7 @@ Split the **Q1 – Job Title** column using `(` as the delimiter to isolate the 
 
 Split the **Q5 – Favorite Programming Language** column using `:` as the delimiter to extract only the language name, then remove the resulting right-side split column.
 
-![Step 4](images/step_04.png)
+![Step 4](assets/images/4.split_q5_column.png)
 
 ---
 
@@ -46,7 +46,7 @@ Split the **Q5 – Favorite Programming Language** column using `:` as the delim
 
 Duplicate the **Q3 – Current Yearly Salary (in USD)** column, then split the copy using a **digit-to-non-digit** boundary to separate the lower and upper salary range values. Remove any extraneous split columns that are not needed.
 
-![Step 5](images/step_05.png)
+![Step 5](5.split_q3_column.png)
 
 ---
 
@@ -59,7 +59,7 @@ On the Q3 split copy columns:
 
 Then change the data type of both split columns to **Whole Number** to enable numeric calculations.
 
-![Step 6](images/step_06.png)
+![Step 6](assets/images/6.remove_and_replace_values.png)
 
 ---
 
@@ -73,7 +73,7 @@ Create a new custom column named **Average Salary** using the formula:
 
 Set the data type to **Decimal Number**.
 
-![Step 7](images/step_07.png)
+![Step 7](assets/images/7.costumn_column_formula.png)
 
 ---
 
@@ -81,7 +81,7 @@ Set the data type to **Decimal Number**.
 
 After the Average Salary column has been successfully created, remove the two Q3 split copy columns (`Copy.1` and `Copy.2`) to declutter the model.
 
-![Step 8](images/step_08.png)
+![Step 8](assets/images/8.remove_split_copy.png)
 
 ---
 
@@ -89,7 +89,7 @@ After the Average Salary column has been successfully created, remove the two Q3
 
 Split both **Q4** and **Q11 – Country** columns using `(` as the delimiter to extract clean values, remove the right-side split remainders for each, then click **Close & Apply** to load the transformed data into the Power BI report view.
 
-![Step 9](images/step_09.png)
+![Step 9](assets/images/9.remove_split_column.png)
 
 ---
 
@@ -97,7 +97,7 @@ Split both **Q4** and **Q11 – Country** columns using `(` as the delimiter to 
 
 Insert a **Text Box** at the top of the report canvas and type the dashboard title (e.g., *"Data Professional Survey Breakdown"*). Apply appropriate font size, color, and alignment to establish a clear visual hierarchy.
 
-![Step 10](images/step_10.png)
+![Step 10](assets/images/10.create_dashboard_title.png)
 
 ---
 
@@ -107,7 +107,7 @@ Add two **Card** visuals:
 - **Card 1:** `Unique ID` → Count → *Count of Survey Takers*
 - **Card 2:** `Q10 – Current Age` → Average → *Average Age of Survey Takers*
 
-![Step 11](images/step_11.png)
+![Step 11](assets/images/11.create_card_dashboard.png)
 
 ---
 
@@ -120,7 +120,7 @@ Insert a **Stacked Bar Chart** with:
 
 Title: *Average Salary by Job Title*
 
-![Step 12](images/step_12.png)
+![Step 12](assets/images/12.stacked_bar_chart.png)
 
 ---
 
@@ -133,7 +133,7 @@ Insert a **Stacked Column Chart** with:
 
 Title: *Favorite Programming Language*
 
-![Step 13](images/step_13.png)
+![Step 13](assets/images/13.stacked_column_chart.png)
 
 ---
 
@@ -145,7 +145,7 @@ Insert a **Tree Map** with:
 
 Title: *Country of Survey Takers*
 
-![Step 14](images/step_14.png)
+![Step 14](assets/images/14.create_tree_map.png)
 
 ---
 
@@ -158,7 +158,7 @@ Insert a **Gauge** visual with:
 
 Title: *Happiness with Work/Life Balance*
 
-![Step 15](images/step_15.png)
+![Step 15](assets/images/15.create_gauge_wlb.png)
 
 ---
 
@@ -171,7 +171,7 @@ Insert a second **Gauge** visual with:
 
 Title: *Happiness with Salary*
 
-![Step 16](images/step_16.png)
+![Step 16](assets/images/16.create_gauge_salary.png)
 
 ---
 
@@ -183,7 +183,7 @@ Insert a **Doughnut Chart** with:
 
 Title: *Difficulty to Break into Data*
 
-![Step 17](images/step_17.png)
+![Step 17](assets/images/17.create_doughnut_chart.png)
 
 ---
 
@@ -191,7 +191,7 @@ Title: *Difficulty to Break into Data*
 
 Resize, align, and reposition all visuals on the canvas for a clean, balanced layout. Apply a consistent color theme, adjust padding/spacing, and verify that all chart titles and labels are readable.
 
-![Step 18](images/step_18.png)
+![Step 18](assets/images/18.dashboard.png)
 
 ---
 
@@ -232,7 +232,3 @@ powerbi-survey-report/
     ├── ...
     └── step_18.png
 ```
-
----
-
-> 💬 *To embed your own screenshots, place them in the `images/` folder and name them `step_01.png` through `step_18.png`. They will automatically render in this README.*
